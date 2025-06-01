@@ -27,7 +27,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.68684764"
-     inkscape:cx="679.18993"
+     inkscape:cx="562.71577"
      inkscape:cy="165.24771"
      inkscape:window-width="1920"
      inkscape:window-height="1003"
@@ -112,9 +112,9 @@
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect4);display:inline"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan2"><tspan
+         id="tspan16"><tspan
            style="font-family:Taarau;-inkscape-font-specification:Taarau"
-           id="tspan1">sabaH</tspan></tspan></text>
+           id="tspan15">sabaH</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0,-0.28174077,0.28174077,0,205.19628,86.421378)"
@@ -122,9 +122,9 @@
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5);display:inline"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan4"><tspan
+         id="tspan18"><tspan
            style="font-family:Taarau;-inkscape-font-specification:Taarau"
-           id="tspan3">boRniO,</tspan></tspan></text>
+           id="tspan17">boRniO,</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
@@ -143,9 +143,9 @@
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect12);display:inline;fill:#008fff;fill-opacity:1"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan6"><tspan
+         id="tspan21"><tspan
            style="font-family:Taarau;-inkscape-font-specification:Taarau"
-           id="tspan5">tuMparaK</tspan></tspan></text>
+           id="tspan20">tuMparaK</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0,0.28174077,-0.28174077,0,143.15263,-10.166043)"
@@ -153,32 +153,32 @@
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect13);display:inline;fill:#008fff;fill-opacity:1"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan8"><tspan
+         id="tspan23"><tspan
            style="font-family:Taarau;-inkscape-font-specification:Taarau"
-           id="tspan7">miXgisoM,</tspan></tspan></text>
+           id="tspan22">miXgisoM,</tspan></tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.35686112,0,0,0.35686112,59.69014,-88.07165)"
+       transform="matrix(0.35686112,0,0,0.35686112,59.69014,-89.659151)"
        id="text14"
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect14);display:inline;fill:#008fff;fill-opacity:1"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan11"><tspan
+         id="tspan25"><tspan
            style="font-family:Taarau;-inkscape-font-specification:Taarau"
-           id="tspan10">misoMpuru</tspan></tspan></text>
+           id="tspan24">misoMpuru</tspan></tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.40775331,0,0,0.40775331,61.493579,-59.53814)"
+       transform="matrix(0.40775331,0,0,0.40775331,61.493579,-64.829807)"
        id="text15"
        style="font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect15);display:inline;stroke:#000000;stroke-width:3.2444;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="48.044922"
          y="333.3957"
-         id="tspan19"><tspan
-           style="fill:#000589;stroke:#000589"
-           id="tspan12">tokoW</tspan><tspan
-           style="font-size:51.9105px"
-           id="tspan13"> </tspan><tspan
-           style="fill:#ff0000;stroke:#ff0000"
-           id="tspan14">wagu</tspan></tspan></text>
+         id="tspan29"><tspan
+           style="font-family:Taarau;-inkscape-font-specification:Taarau;fill:#000589;stroke:#000589"
+           id="tspan26">tokoW</tspan><tspan
+           style="font-size:51.9105px;font-family:Taarau;-inkscape-font-specification:Taarau"
+           id="tspan27"> </tspan><tspan
+           style="font-family:Taarau;-inkscape-font-specification:Taarau;fill:#ff0000;stroke:#ff0000"
+           id="tspan28">wagu</tspan></tspan></text>
   </g>
 </svg>

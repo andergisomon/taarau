@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1715245110
-ModificationTime: 1748799063
+ModificationTime: 1748800227
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -57,7 +57,7 @@ DisplaySize: -128
 AntiAlias: 1
 FitToEm: 0
 WidthSeparation: 150
-WinInfo: 42 14 6
+WinInfo: 0 14 6
 BeginPrivate: 0
 EndPrivate
 Grid
@@ -351,7 +351,7 @@ SplineSet
  45.310546875 780 l 1x40
 EndSplineSet
 Validated: 41
-Kerns2: 30 150 "kerning-1" 42 -160 "kerning-1" 46 30 "kerning-1" 47 80 "kerning-1" 55 -30 "kerning-1" 60 -20 "kerning-1"
+Kerns2: 30 150 "kerning-1" 46 30 "kerning-1" 47 80 "kerning-1" 55 -30 "kerning-1" 60 -20 "kerning-1"
 EndChar
 
 StartChar: o_bas
@@ -399,7 +399,7 @@ Encoding: 20 85 8
 Width: 929
 VWidth: 1024
 Flags: W
-HStem: 276 70<255.583 326>
+HStem: 276 70<255.877 327>
 VStem: 86.2178 64.7822<341.302 459.362> 462 70<460.119 695>
 AnchorPoint: "pangnau" 862.687 250.438 basechar 0
 AnchorPoint: "saau_maam" 293.687 -57.5625 basechar 0
@@ -409,16 +409,16 @@ Fore
 SplineSet
 462 695.076171875 m 1
  462 545.046875 470 458 480 416 c 1
- 448 399 425 387 390 370 c 1
- 388.591796875 395.793945312 380 469 344 506.620117188 c 0
+ 448 399 426 387 391 370 c 1
+ 389.591796875 395.793945312 380 469 344 506.620117188 c 0
  299.209267857 553.42657808 235 566 171.380859375 535.99609375 c 0
  105.897353795 505.112920179 87.6253160364 448.349906789 86.2177734375 403.953125 c 0
  84 334 135.356001872 268.768459215 202 258.953125 c 0
- 256 251 287 266 326 276 c 1
- 326.224609375 21.736328125 l 1
- 389 20.953125 l 1
- 389.775390625 300 l 1
- 432.775390625 320 453 329 501 355 c 1
+ 256 251 288 266 327 276 c 1
+ 327.224609375 21.736328125 l 1
+ 390 20.953125 l 1
+ 390.775390625 300 l 1
+ 433.775390625 320 453 329 501 355 c 1
  545 212 621.057828338 192.742817393 683.26953125 196.234375 c 0
  786 202 839 284 834 361.953125 c 0
  827.718840573 459.880326193 767.837712579 502.529388939 713 509.325195312 c 0
@@ -428,8 +428,8 @@ SplineSet
 151 395.953125 m 0
  150 436 165.601047122 470.951145288 214 481.953125 c 0
  231.128996708 485.846863667 273 495 304.993591363 449.999999301 c 0
- 325.329629108 421.396717402 326.145507812 363.268554688 326 346 c 1
- 291 331 252 319 215.744140625 322.47265625 c 0
+ 325.329629108 421.396717402 327.145507812 363.268554688 327 346 c 1
+ 292 331 252 319 215.744140625 322.47265625 c 0
  179.878567662 325.907930113 152.147397417 350.003444082 151 395.953125 c 0
 557 385 m 1
  591 416 645.269228165 442.733250704 699 441 c 0
@@ -437,7 +437,7 @@ SplineSet
  769.1825138 308.87205137 744.339248057 277.328181331 696 268.389435281 c 0
  629 256 591.625607456 280.918598634 557 385 c 1
 EndSplineSet
-Validated: 1048617
+Validated: 1572905
 Kerns2: 34 100 "kerning-1"
 EndChar
 
@@ -1161,7 +1161,7 @@ SplineSet
  522.75 600.85546875 554.673828125 680 566.673828125 727 c 1
  491.673828125 747 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 31 -130 "kerning-1" 32 40 "kerning-1" 44 -35 "kerning-1" 79 -60 "kerning-1"
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" kaak a_saau
 LCarets2: 1 0
@@ -1203,7 +1203,7 @@ SplineSet
  363.282226562 655.924804688 l 1
  363 375 l 17
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 4 -70 "kerning-1" 8 -60 "kerning-1" 30 61 "kerning-1" 31 -100 "kerning-1" 45 -90 "kerning-1" 46 -150 "kerning-1" 47 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" kaak i_saau
@@ -1258,7 +1258,7 @@ SplineSet
  705.1953125 303.291015625 l 1
  705.1953125 343.534179688 659.703125 370.58984375 583.857421875 368.8828125 c 1
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 30 100 "kerning-1" 31 -50 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" kaak u_saau
@@ -1303,8 +1303,8 @@ SplineSet
  393.969726562 324.219726562 394.470703125 293.7421875 386.290039062 269.7421875 c 0
  383.584960938 261.806640625 365.901367188 214.75 288.981445312 214.75 c 0
 EndSplineSet
-Validated: 1572905
-Kerns2: 5 -80 "kerning-1" 8 -100 "kerning-1" 29 -20 "kerning-1" 31 -200 "kerning-1" 34 50 "kerning-1" 37 -110 "kerning-1" 38 -80 "kerning-1" 43 -30 "kerning-1" 46 -110 "kerning-1" 47 -50 "kerning-1" 49 -110 "kerning-1" 51 -10 "kerning-1" 53 -70 "kerning-1" 75 -100 "kerning-1" 108 120 "kerning-1"
+Validated: 1048617
+Kerns2: 45 -60 "kerning-1" 5 -80 "kerning-1" 8 -100 "kerning-1" 29 -20 "kerning-1" 31 -200 "kerning-1" 34 50 "kerning-1" 37 -110 "kerning-1" 38 -80 "kerning-1" 43 -30 "kerning-1" 46 -110 "kerning-1" 47 -50 "kerning-1" 49 -110 "kerning-1" 51 -10 "kerning-1" 53 -70 "kerning-1" 75 -100 "kerning-1" 108 120 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" kaak o_saau
 EndChar
@@ -1353,7 +1353,7 @@ SplineSet
  502.654296875 716.211914062 425.274414062 731.405273438 413.375 733.568359375 c 1
  436.375 807.568359375 l 1
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 5 10 "kerning-1" 30 160 "kerning-1" 79 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" gaag a_saau
@@ -1398,7 +1398,7 @@ SplineSet
  313.44140625 691.969726562 307.450195312 726.268554688 301.725585938 764.447265625 c 1
  380.100585938 768 l 1xd8
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 34 40 "kerning-1" 44 -40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" gaag i_saau
@@ -1456,7 +1456,7 @@ SplineSet
  745.840820312 245.0625 798.690429688 297.326171875 798.69140625 350.9609375 c 0
  798.69140625 421.38671875 728.67578125 435.631835938 667.005859375 434.51953125 c 0
 EndSplineSet
-Validated: 524321
+Validated: 33
 Kerns2: 6 -30 "kerning-1" 30 140 "kerning-1" 34 110 "kerning-1" 35 -30 "kerning-1" 46 30 "kerning-1" 85 -10 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" gaag u_saau
@@ -1505,7 +1505,7 @@ SplineSet
  541.174804688 373.80859375 541.001953125 391.956054688 541.001953125 413.259765625 c 1
  534.01953125 413.259765625 l 2
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 97 200 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" gaag o_saau
@@ -1548,7 +1548,7 @@ SplineSet
  54.6845045145 321.371811726 50.9426470135 276.540787406 65.654296875 217.16796875 c 1
  130.067382812 235.455078125 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 66 -35 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" baab a_saau
@@ -1599,7 +1599,7 @@ SplineSet
  250.654296875 363.631835938 251.725585938 334.7578125 261.307617188 296.083984375 c 1
  325.721679688 314.372070312 l 1
 EndSplineSet
-Validated: 1572873
+Validated: 1048585
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" baab i_saau
 EndChar
@@ -1661,7 +1661,7 @@ SplineSet
  426.34375 314.38671875 487.62890625 363.092773438 503.559570312 372.987304688 c 1xec
  503.760742188 444.290039062 l 1
 EndSplineSet
-Validated: 1572901
+Validated: 1048613
 Kerns2: 30 160 "kerning-1" 83 -70 "kerning-1" 85 30 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" baab u_saau
@@ -1717,7 +1717,7 @@ SplineSet
  301.38803613 387.048551707 321.115507939 404.04607335 350.999998596 418.495112169 c 0
  381 433 452 440.83203125 486 433 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 5 10 "kerning-1" 108 -100 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" baab o_saau
@@ -1764,7 +1764,7 @@ SplineSet
  124.999023438 506 124.999023438 567 124.999023438 694.000976562 c 1
  114.3359375 693.99609375 65 694 60 694 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 8 -50 "kerning-1" 60 -30 "kerning-1" 64 -160 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" daad a_saau
@@ -1812,7 +1812,7 @@ SplineSet
  501.913085938 499 501.913085938 543.427734375 501.913085938 708 c 1
  436.9140625 708 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 45 -10 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" daad i_saau
@@ -1874,7 +1874,7 @@ SplineSet
  691.09375 343.8125 674.270507812 383.091796875 591.58203125 383.091796875 c 2
  591.580078125 383.091796875 l 1xbe
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 30 -40 "kerning-1" 66 100 "kerning-1" 85 80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" daad u_saau
@@ -1928,7 +1928,7 @@ SplineSet
  157.5 242.674804688 125.08203125 285.37890625 125.08203125 335.188476562 c 1
  125.081054688 335.188476562 l 1
 EndSplineSet
-Validated: 1572869
+Validated: 1048581
 Kerns2: 108 100 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" daad o_saau
@@ -1981,7 +1981,7 @@ SplineSet
  468.68359375 553.87890625 l 2
  468.68359375 604.943359375 497.1171875 638.06640625 564.63671875 636.041015625 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 40 -30 "kerning-1" 45 -50 "kerning-1" 48 -90 "kerning-1" 79 -174 "kerning-1" 90 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" taat a_saau
@@ -2041,7 +2041,7 @@ SplineSet
  819.895507812 512.7265625 823.744140625 564.447265625 823.744140625 575.68359375 c 0
  823.744140625 619.328125 779.958984375 644.524414062 727.212890625 648.0625 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 29 10 "kerning-1" 30 -150 "kerning-1" 46 -90 "kerning-1" 74 -40 "kerning-1" 79 -70 "kerning-1" 86 -90 "kerning-1" 102 -10 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" taat i_saau
@@ -2104,7 +2104,7 @@ SplineSet
  769.270507812 394.73046875 l 2xfd
  769.270507812 455.202148438 700.466796875 483.108398438 699.409179688 483.505859375 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 7 40 "kerning-1" 34 60 "kerning-1" 47 20 "kerning-1" 59 30 "kerning-1" 77 80 "kerning-1" 85 60 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" taat u_saau
@@ -2157,7 +2157,7 @@ SplineSet
  246.7578125 356.4296875 250.58984375 418.875 273.58984375 452.875 c 1
  294.711914062 468.817382812 318.5546875 475.051757812 343.810546875 474.3515625 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 5 -70 "kerning-1" 30 -40 "kerning-1" 31 -160 "kerning-1" 34 -60 "kerning-1" 37 -20 "kerning-1" 54 -160 "kerning-1" 75 -60 "kerning-1" 82 -10 "kerning-1" 85 -120 "kerning-1" 86 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" taat o_saau
@@ -2204,7 +2204,7 @@ SplineSet
  176.727539062 544.71875 203.133789062 582.99609375 237.74609375 598.326171875 c 0
  259.09375 607.78125 289.926757812 607.692382812 307.947265625 598.64453125 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 108 40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" paap a_saau
@@ -2253,7 +2253,7 @@ SplineSet
  390.26953125 560.6015625 416.67578125 598.87890625 451.288085938 614.208984375 c 0
  487.049804688 630.047851562 535.431640625 619.45703125 554.139648438 585.201171875 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 7 -50 "kerning-1" 8 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" paap i_saau
@@ -2311,7 +2311,7 @@ SplineSet
  723.009765625 322.51953125 l 1
  723.009765625 330.495117188 720.467773438 403.059570312 628.0546875 405.73828125 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 56 -30 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" paap u_saau
@@ -2358,7 +2358,7 @@ SplineSet
  156.74609375 230.20703125 87.9423828125 299.76953125 146.7265625 368.690429688 c 0
  164.376953125 389.387695312 192.8046875 422.720703125 353.189453125 407.209960938 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 30 140 "kerning-1" 46 60 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" paap o_saau
@@ -2404,7 +2404,7 @@ SplineSet
  465.650390625 688.908203125 491.8203125 659.581054688 498.502929688 623.986328125 c 0
  502.642578125 601.935546875 499.303710938 577.48046875 485.15625 553.767578125 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 28 70 "kerning-1" 59 20 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" haah a_saau
@@ -2447,7 +2447,7 @@ SplineSet
  667.017578125 479.943359375 653.250976562 542.498046875 663.608398438 590.064453125 c 0
  682.0234375 674.641601562 770 672.064453125 809.31640625 632.064453125 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 54 -60 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" haah i_saau
@@ -2501,7 +2501,7 @@ SplineSet
  666.2890625 404 646.2890625 439 633.2890625 455 c 1
  544.2890625 458 505.2890625 468 464.2890625 486 c 1
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 34 -90 "kerning-1" 103 40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" haah u_saau
@@ -2547,7 +2547,7 @@ SplineSet
  123.329101562 304.978515625 127.861328125 337.544921875 166.576171875 360.0234375 c 0
  169.376953125 361.649414062 240.706054688 402.188476562 335.228515625 369.15234375 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 59 60 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" haah o_saau
@@ -2597,7 +2597,7 @@ SplineSet
  915 566 865.462890625 651.194335938 794 707.5078125 c 0
  735 754 626 788 575 797 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 46 20 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" raar a_saau
@@ -2642,7 +2642,7 @@ SplineSet
  775.234375 546 775.234375 590.190429688 750.583984375 636 c 0
  696.43359375 736.629882812 530.974609375 759.649414062 461.40625 650.18359375 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 31 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" raar i_saau
@@ -2701,7 +2701,7 @@ SplineSet
  738.790039062 217.0078125 795.90234375 260.709960938 795.90234375 316.4609375 c 0
  795.90234375 353.4296875 763.921875 400.37109375 694.171875 398.966796875 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 81 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" raar u_saau
@@ -2750,7 +2750,7 @@ SplineSet
  356.72825062 473.776869956 285.878677785 588.776577745 340.474609375 644.329101562 c 0
  370.588762167 674.970893752 437.42560704 677.40178601 473.541015625 653.357421875 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 82 -140 "kerning-1" 108 -150 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" raar o_saau
@@ -2796,7 +2796,7 @@ SplineSet
  330 557 l 1
  379 563 457.579101562 567.51953125 489 532 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 31 -100 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas a_saau
@@ -2847,7 +2847,7 @@ SplineSet
  556.229492188 420.913085938 610.244140625 392.610351562 662.141601562 420 c 0
  698.141601562 439 725.090820312 496.077148438 674.141601562 540 c 0
 EndSplineSet
-Validated: 1572901
+Validated: 1048613
 Kerns2: 31 -110 "kerning-1" 81 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas i_saau
@@ -2910,7 +2910,7 @@ SplineSet
  611.333007812 356.310546875 571.029296875 352.740234375 553.150390625 352.740234375 c 0
  497.986328125 352.740234375 470.24609375 391.01171875 465.58203125 398.09765625 c 1
 EndSplineSet
-Validated: 1572901
+Validated: 1048613
 Kerns2: 30 140 "kerning-1" 104 40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas u_saau
@@ -2961,7 +2961,7 @@ SplineSet
  340.341796875 265.029296875 319.307617188 240.94921875 283 229.149414062 c 0
  221 209 140 226 126 297 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 31 -100 "kerning-1" 34 30 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas o_saau
@@ -3012,7 +3012,7 @@ SplineSet
  394.10546875 592.560546875 427.8203125 607.489257812 454.166015625 617.227539062 c 1
  441.505859375 680.665039062 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 32 30 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" yaai a_saau
@@ -3056,7 +3056,7 @@ SplineSet
  701 523 l 1
  701 596 673 662 637.333984375 701.251953125 c 1xb8
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" yaai i_saau
 EndChar
@@ -3118,7 +3118,7 @@ SplineSet
  811.67578125 366.8828125 786.305664062 417.955078125 708.15234375 417.955078125 c 2
  708.150390625 417.955078125 l 2
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 67 -40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" yaai u_saau
@@ -3169,7 +3169,7 @@ SplineSet
  311.322265625 336.08984375 325.73828125 379.481445312 371.966796875 397.068359375 c 5
  408.890625 384.163085938 455.891601562 382.7265625 523.10546875 412.9765625 c 5
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" yaai o_saau
 EndChar
@@ -3216,7 +3216,7 @@ SplineSet
  122.979492188 502.435546875 133.585723138 558.774901961 191 584 c 0
  215.91015625 594.944335938 266.357421875 596.913085938 313.55078125 589.311523438 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 46 50 "kerning-1" 64 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" waau a_saau
@@ -3262,7 +3262,7 @@ SplineSet
  309 558 322.863184131 609.187724877 378 633 c 0
  388.72265625 637.630859375 440.3671875 658.365234375 498 642 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" waau i_saau
 EndChar
@@ -3322,7 +3322,7 @@ SplineSet
  693.791992188 242.186523438 746.177734375 282.8515625 751.453125 341 c 0
  756.11328125 392.374023438 736.970703125 448 657.970703125 451 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" waau u_saau
 EndChar
@@ -3374,7 +3374,7 @@ SplineSet
  382.735351562 304.689453125 391 340.688476562 446 366.721679688 c 0
  504.282226562 394.309570312 577.8828125 385.7890625 592.224609375 382.688476562 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 58 -50 "kerning-1" 67 -40 "kerning-1" 80 -120 "kerning-1" 82 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" waau o_saau
@@ -3412,7 +3412,7 @@ SplineSet
  496.47265625 678.565429688 524.756835938 570.3359375 432.379882812 515.615234375 c 0
  361.962890625 473.903320312 216.409179688 465.08984375 87.6689453125 552.997070312 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 47 60 "kerning-1" 79 -100 "kerning-1" 83 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" maam a_saau
@@ -3454,7 +3454,7 @@ SplineSet
  533 370 l 17
  533 276 494.793945312 236 366.793945312 236 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 4 -60 "kerning-1" 43 -90 "kerning-1" 45 -70 "kerning-1" 63 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" maam i_saau
@@ -3507,7 +3507,7 @@ SplineSet
  665.260742188 294.551757812 672.802734375 333.053710938 670.3984375 364 c 0
  665.317382812 429.427734375 617.689453125 461.000976562 541.69140625 474.75390625 c 1
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 79 -50 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" maam u_saau
@@ -3556,7 +3556,7 @@ SplineSet
  234 440 283 466 327.903320312 471.971679688 c 1
  365.708984375 463.00390625 408.342773438 458.970703125 408.342773438 458.970703125 c 2
 EndSplineSet
-Validated: 1572901
+Validated: 1048613
 Kerns2: 72 -60 "kerning-1" 77 50 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" maam o_saau
@@ -3605,7 +3605,7 @@ SplineSet
  61 699 l 1
  61 597 l 17
 EndSplineSet
-Validated: 1572873
+Validated: 1048585
 Kerns2: 31 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" naan a_saau
@@ -3651,7 +3651,7 @@ SplineSet
  221 711.946289062 l 1
  221 618 l 2
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 47 50 "kerning-1" 79 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" naan i_saau
@@ -3710,7 +3710,7 @@ SplineSet
  768.946289062 258.013671875 795.46875 321.42578125 795.46875 363.044921875 c 0
  795.46875 406.734375 772.162109375 469.63671875 686.287109375 469.63671875 c 0xef
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" naan u_saau
 EndChar
@@ -3761,7 +3761,7 @@ SplineSet
  1103.16503906 476.74609375 1092.91503906 572.572265625 1020.08789062 672.063476562 c 1
  968.278320312 632.791992188 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 52 15 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" ngaang a_saau
@@ -3809,7 +3809,7 @@ SplineSet
  638 172.817813815 742.786132812 254 742.786132812 409 c 0
  743 446.088867188 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" ngaang i_saau
 EndChar
@@ -3867,7 +3867,7 @@ SplineSet
  970.775390625 344.70703125 l 2
  970.775390625 436.384765625 871.515625 437.6015625 866.244140625 437.6015625 c 0xaf
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 82 -40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" ngaang u_saau
@@ -3917,7 +3917,7 @@ SplineSet
  553.801606623 398.890476662 570.411637734 409.91181143 588 425.788513401 c 0
  616.496069598 451.511408888 628.830735149 485.16015625 651.005859375 485.16015625 c 0
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 35 -35 "kerning-1" 67 -90 "kerning-1" 108 -255 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" ngaang o_saau
@@ -3968,7 +3968,7 @@ SplineSet
  394.734375 722 l 1
  328.377929688 722 l 1
 EndSplineSet
-Validated: 1572901
+Validated: 1048613
 Kerns2: 30 150 "kerning-1" 64 -30 "kerning-1" 79 -50 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" laal a_saau
@@ -4017,7 +4017,7 @@ SplineSet
  562.333984375 586.510742188 563.32421875 696.052734375 564.32421875 741 c 1
  495.32421875 741 l 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" laal i_saau
 EndChar
@@ -4082,7 +4082,7 @@ SplineSet
  708.263671875 399.36328125 692.961914062 423.80078125 672.115234375 439.7578125 c 0
  644.923828125 460.572265625 616.936523438 472.653320312 582.390625 471.5390625 c 0
 EndSplineSet
-Validated: 1572897
+Validated: 1048609
 Kerns2: 64 -110 "kerning-1" 108 -240 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" laal u_saau
@@ -4136,7 +4136,7 @@ SplineSet
  123.560546875 322.067382812 146.723632812 378.982421875 173.385742188 406.815429688 c 0
  189.396484375 423.529296875 212.389648438 434.13671875 235.526367188 437.797851562 c 1
 EndSplineSet
-Validated: 1572905
+Validated: 1048617
 Kerns2: 8 -30 "kerning-1" 82 -140 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" laal o_saau
@@ -4162,7 +4162,7 @@ SplineSet
  399.688476562 310.087890625 310.0390625 294.462890625 282 290 c 1
 EndSplineSet
 Validated: 41
-Kerns2: 38 -50 "kerning-1" 49 -60 "kerning-1" 108 100 "kerning-1"
+Kerns2: 50 -80 "kerning-1" 38 -50 "kerning-1" 49 -60 "kerning-1" 108 100 "kerning-1"
 EndChar
 
 StartChar: sigot
@@ -4254,7 +4254,7 @@ SplineSet
  -19.2275390625 737.189453125 -1.8203125 703.25390625 9.8623046875 667.490234375 c 1
 EndSplineSet
 Validated: 41
-Kerns2: 76 50 "kerning-1" 28 50 "kerning-1" 2 280 "kerning-1" 8 70 "kerning-1" 10 250 "kerning-1" 11 250 "kerning-1" 12 300 "kerning-1" 13 250 "kerning-1" 15 250 "kerning-1" 16 200 "kerning-1" 18 230 "kerning-1" 22 256 "kerning-1" 23 200 "kerning-1" 25 250 "kerning-1" 29 250 "kerning-1" 30 310 "kerning-1" 31 20 "kerning-1" 32 300 "kerning-1" 34 120 "kerning-1" 36 250 "kerning-1" 38 70 "kerning-1" 40 230 "kerning-1" 42 50 "kerning-1" 46 100 "kerning-1" 47 210 "kerning-1" 48 150 "kerning-1" 50 120 "kerning-1" 52 120 "kerning-1" 57 300 "kerning-1" 60 200 "kerning-1" 61 120 "kerning-1" 63 200 "kerning-1" 67 200 "kerning-1" 69 250 "kerning-1" 70 225 "kerning-1" 72 140 "kerning-1" 73 130 "kerning-1" 75 256 "kerning-1" 78 50 "kerning-1" 82 250 "kerning-1" 83 250 "kerning-1" 84 250 "kerning-1" 86 120 "kerning-1" 102 230 "kerning-1" 108 -30 "kerning-1"
+Kerns2: 49 80 "kerning-1" 75 70 "kerning-1" 33 70 "kerning-1" 43 50 "kerning-1" 102 70 "kerning-1" 48 50 "kerning-1" 76 50 "kerning-1" 28 50 "kerning-1" 2 280 "kerning-1" 8 70 "kerning-1" 10 250 "kerning-1" 11 250 "kerning-1" 12 300 "kerning-1" 13 250 "kerning-1" 15 250 "kerning-1" 16 200 "kerning-1" 18 230 "kerning-1" 22 256 "kerning-1" 23 200 "kerning-1" 25 250 "kerning-1" 29 250 "kerning-1" 30 310 "kerning-1" 31 20 "kerning-1" 32 300 "kerning-1" 34 120 "kerning-1" 36 250 "kerning-1" 38 70 "kerning-1" 40 230 "kerning-1" 42 50 "kerning-1" 46 100 "kerning-1" 47 210 "kerning-1" 50 120 "kerning-1" 52 120 "kerning-1" 57 300 "kerning-1" 60 200 "kerning-1" 61 120 "kerning-1" 63 200 "kerning-1" 67 200 "kerning-1" 69 250 "kerning-1" 70 225 "kerning-1" 72 140 "kerning-1" 73 130 "kerning-1" 78 50 "kerning-1" 82 250 "kerning-1" 83 250 "kerning-1" 84 250 "kerning-1" 86 120 "kerning-1" 108 -30 "kerning-1"
 EndChar
 
 StartChar: glyph103
@@ -4722,8 +4722,8 @@ SplineSet
  517.389648438 335.798828125 l 1
  517.192382812 273.471679688 466.809570312 222.853515625 399.150390625 222.853515625 c 1
 EndSplineSet
-Validated: 1572905
-Kerns2: 30 -135 "kerning-1" 31 -90 "kerning-1" 33 -70 "kerning-1" 34 -55 "kerning-1" 46 50 "kerning-1" 50 -70 "kerning-1" 57 -100 "kerning-1" 61 -40 "kerning-1" 75 -90 "kerning-1" 79 -110 "kerning-1" 80 -60 "kerning-1" 81 -140 "kerning-1" 82 -140 "kerning-1" 92 140 "kerning-1"
+Validated: 1048617
+Kerns2: 108 -255 "kerning-1" 30 -135 "kerning-1" 31 -90 "kerning-1" 33 -70 "kerning-1" 34 -55 "kerning-1" 46 50 "kerning-1" 50 -70 "kerning-1" 57 -100 "kerning-1" 61 -40 "kerning-1" 75 -90 "kerning-1" 79 -110 "kerning-1" 80 -60 "kerning-1" 81 -140 "kerning-1" 82 -140 "kerning-1" 92 140 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" naan o_saau
 EndChar
@@ -5004,8 +5004,8 @@ SplineSet
  -63.919921875 303.775390625 -62.265625 334.357421875 -58.642578125 364.2109375 c 1
  -34.26953125 362.888671875 -17.193359375 361.110351562 9.482421875 358.713867188 c 1
 EndSplineSet
-Validated: 524321
-Kerns2: 90 50 "kerning-1"
+Validated: 33
+Kerns2: 2 128 "kerning-1" 90 50 "kerning-1"
 EndChar
 
 StartChar: glyph113
@@ -5035,7 +5035,7 @@ VWidth: 0
 Flags: W
 LayerCount: 3
 Fore
-Validated: 4194305
+Validated: 1
 EndChar
 
 StartChar: glyph116
@@ -5045,7 +5045,7 @@ VWidth: 0
 Flags: W
 LayerCount: 3
 Fore
-Validated: 4194305
+Validated: 1
 EndChar
 EndChars
 EndSplineFont
