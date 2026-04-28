@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1715245110
-ModificationTime: 1766081707
+ModificationTime: 1777398329
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -44,6 +44,7 @@ HheadDOffset: 1
 OS2Vendor: 'PfEd'
 Lookup: 4 0 1 "'liga' Standard Ligatures in Latin lookup 2" { "'liga' Standard Ligatures in Latin lookup 2-1"  } ['liga' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 4 0 1 "'liga' Standard Ligatures in Latin lookup 1" { "'liga' Standard Ligatures in Latin lookup 1-1"  } ['liga' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 261 0 0 "'mark' Mark Positioning in Latin lookup 3" { "'mark' Mark Positioning in Latin lookup 3-1"  } ['mark' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 258 0 0 "kerning" { "kerning-1" [150,15,3] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 260 0 0 "'mark' Mark Positioning in Latin lookup 2" { "'mark' Mark Positioning in Latin lookup 2-1"  } ['mark' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 260 0 0 "gumpak sangau" { "gumpak sangau-1"  } ['mark' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
@@ -106,8 +107,8 @@ Grid
 -57.6666666667 1300 m 0
  -57.6666666667 -700 l 1024
 EndSplineSet
-AnchorClass2: "u_sait" "'mark' Mark Positioning in Latin lookup 2-1" "sangau" "gumpak sangau-1" "saau_pangnau"""  "pangnau_saau"""  "saau_maam" "'mark' Mark Positioning in Latin lookup 2-1" "saau_tonibo"""  "kaas" "'mark' Mark Positioning in Latin lookup 2-1" "kaas_langgoi"""  "pangnau" "'mark' Mark Positioning in Latin lookup 2-1" "saau" "'mark' Mark Positioning in Latin lookup 2-1"
-BeginChars: 557 132
+AnchorClass2: "pangnau_lig" "'mark' Mark Positioning in Latin lookup 3-1" "saau_maam_lig" "'mark' Mark Positioning in Latin lookup 3-1" "u_sait_lig" "'mark' Mark Positioning in Latin lookup 3-1" "usait"""  "u_sait" "'mark' Mark Positioning in Latin lookup 2-1" "sangau" "gumpak sangau-1" "saau_pangnau"""  "pangnau_saau"""  "saau_maam" "'mark' Mark Positioning in Latin lookup 2-1" "saau_tonibo"""  "kaas" "'mark' Mark Positioning in Latin lookup 2-1" "kaas_langgoi"""  "pangnau" "'mark' Mark Positioning in Latin lookup 2-1" "saau" "'mark' Mark Positioning in Latin lookup 2-1"
+BeginChars: 561 133
 
 StartChar: .notdef
 Encoding: 0 -1 0
@@ -2037,9 +2038,9 @@ StartChar: go
 Encoding: 55 57351 35
 Width: 860
 VWidth: 1024
-Flags: HW
-HStem: 171.209 65<366.413 511.675> 799 20G<108.625 188.871>
-VStem: 119.289 70.5508<618.672 813.625> 273.525 65.25<262.662 363.378> 541.002 64.998<267.607 401.209 478 569.252>
+Flags: W
+HStem: 171.209 65<366.413 511.675>
+VStem: 119.289 70.5508<618.672 813.625> 273.525 65.25<262.662 363.378> 541.002 64.998<267.607 358.209 478 569.252>
 AnchorPoint: "u_sait" 938 417 basechar 0
 AnchorPoint: "pangnau" 999.67 392 basechar 0
 AnchorPoint: "saau_maam" 407.665 46 basechar 0
@@ -2076,6 +2077,7 @@ SplineSet
  383.596679688 236.208984375 338.775390625 263.984375 338.775390625 312.208984375 c 0
  338.775390625 389.646484375 449.272460938 413.259765625 534.01953125 413.259765625 c 2
 EndSplineSet
+Validated: 41
 Kerns2: 82 -90 "kerning-1" 97 200 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" gaag o_saau
@@ -2893,9 +2895,11 @@ StartChar: po
 Encoding: 71 57367 51
 Width: 741
 VWidth: 1024
+GlyphClass: 3
 Flags: W
 VStem: 352.93 68.6094<267.741 409.076 479.292 607.669> 628 80<181.55 218.029>
-AnchorPoint: "u_sait" 827 342 basechar 0
+AnchorPoint: "sangau" 544 97 basechar 0
+AnchorPoint: "u_sait_lig" 767 348 baselig 0
 AnchorPoint: "pangnau" 953 328 basechar 0
 AnchorPoint: "saau_maam" 304 46 basechar 0
 AnchorPoint: "saau" 393 370 basechar 0
@@ -2932,8 +2936,8 @@ SplineSet
 EndSplineSet
 Validated: 41
 Kerns2: 30 140 "kerning-1" 46 60 "kerning-1"
-LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" paap o_saau
+LCarets2: 1 0
 EndChar
 
 StartChar: ha
@@ -3225,8 +3229,8 @@ StartChar: ru
 Encoding: 78 57374 58
 Width: 926
 VWidth: 1024
-Flags: HW
-HStem: 181.947 65.0605<607.452 747.619> 428.967 65.0137<608.151 764.516> 711.045 20G<70.5303 80.085> 711.045 20G<70.5303 80.085>
+Flags: W
+HStem: 181.947 65.0605<607.452 747.619> 428.967 65.0137<608.151 764.516>
 VStem: 509.451 65.6523<283.464 354.232 464.467 637.933> 795.902 65.0254<290.493 397.972>
 AnchorPoint: "u_sait" 1028 410 basechar 0
 AnchorPoint: "pangnau" 1066.74 400.549 basechar 0
@@ -3235,7 +3239,7 @@ AnchorPoint: "saau" 545 372.549 basechar 0
 LayerCount: 3
 Fore
 SplineSet
-407.208984375 744.3046875 m 0xec
+407.208984375 744.3046875 m 0
  350.96484375 745.958007812 293.559570312 721.0625 261.224609375 670.18359375 c 0
  212.834960938 594.03515625 259.338867188 496.680664062 290.474609375 442.591796875 c 1
  261.346679688 438.385742188 163.262695312 424.221679688 128.318359375 481.138671875 c 0
@@ -3265,13 +3269,14 @@ SplineSet
  860.927734375 421.993164062 797.7421875 493.98046875 697.041015625 493.98046875 c 0
  676.428710938 493.98046875 645.826171875 493.98046875 575.07421875 464.466796875 c 1
  575.2421875 582.317382812 573.58984375 636.337890625 524 692 c 0
- 493.998046875 725.672851562 450.955078125 743.018554688 407.208984375 744.3046875 c 0xec
+ 493.998046875 725.672851562 450.955078125 743.018554688 407.208984375 744.3046875 c 0
 694.171875 428.966796875 m 0
  763.921875 430.37109375 795.90234375 383.4296875 795.90234375 346.4609375 c 0
  795.90234375 290.709960938 738.790039062 247.0078125 674.51953125 247.0078125 c 0
  575.103515625 247.0078125 575.103515625 334.010742188 575.103515625 391.609375 c 1
  622.958984375 417.701171875 662.466796875 428.329101562 694.171875 428.966796875 c 0
 EndSplineSet
+Validated: 41
 Kerns2: 81 -70 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" raar u_saau
@@ -3376,9 +3381,9 @@ StartChar: si
 Encoding: 81 57377 61
 Width: 833
 VWidth: 1024
-Flags: HW
-HStem: 172.01 64.7129<224.65 407.409> 771 43.7832G<253.454 280.538 454.999 520.141>
-VStem: 455 65.1416<284.145 389 435.392 557 624 791>
+Flags: W
+HStem: 172.01 64.7129<224.65 407.409> 561 63<520.142 673.091> 771 20G<454.999 455>
+VStem: 455 65.1416<284.145 377 435.392 492>
 AnchorPoint: "u_sait" 778 366 basechar 0
 AnchorPoint: "pangnau" 904 350 basechar 0
 AnchorPoint: "saau_maam" 380 46 basechar 0
@@ -3417,6 +3422,7 @@ SplineSet
  520.141601562 561 l 1
  550.709960938 564.197265625 636.504882812 572.447265625 674.141601562 540 c 0
 EndSplineSet
+Validated: 37
 Kerns2: 31 -110 "kerning-1" 81 -80 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas i_saau
@@ -3426,9 +3432,8 @@ StartChar: su
 Encoding: 82 57378 62
 Width: 813
 VWidth: 1024
-Flags: HW
-HStem: 802 20G<400.582 465.58>
-VStem: 400.582 64.998<300.025 427.672 489.019 590 659 822> 697.232 64<305.292 412.337>
+Flags: W
+VStem: 400.582 64.998<300.025 385 497.177 527.74> 697.232 64<305.292 412.337>
 AnchorPoint: "u_sait" 860 306 basechar 0
 AnchorPoint: "pangnau" 973.232 417 basechar 0
 AnchorPoint: "saau_maam" 435.232 83 basechar 0
@@ -3479,6 +3484,7 @@ SplineSet
  480.479492188 300.322265625 464.727539062 336.049804688 465.232421875 379 c 0
  465.232421875 402 465.58203125 406.999023438 465.58203125 435.09765625 c 1
 EndSplineSet
+Validated: 41
 Kerns2: 79 -80 "kerning-1" 30 140 "kerning-1" 104 40 "kerning-1"
 LCarets2: 1 0
 Ligature2: "'liga' Standard Ligatures in Latin lookup 1-1" saas u_saau
@@ -5586,9 +5592,10 @@ EndChar
 StartChar: u_sait
 Encoding: 228 87 109
 Width: 526
+GlyphClass: 4
 Flags: W
 VStem: 32.6719 59.4678<-7 107.617 191.485 391.16>
-AnchorPoint: "u_sait" 7.67188 375 mark 0
+AnchorPoint: "u_sait_lig" 7.67188 375 mark 0
 LayerCount: 3
 Fore
 SplineSet
@@ -5610,7 +5617,7 @@ SplineSet
  362.671875 281 328.671875 280 302.671875 264 c 1
 EndSplineSet
 Validated: 33
-Kerns2: 113 300 "kerning-1" 2 128 "kerning-1" 36 -130 "kerning-1" 90 50 "kerning-1"
+Kerns2: 90 50 "kerning-1" 36 -130 "kerning-1" 2 128 "kerning-1" 113 300 "kerning-1"
 EndChar
 
 StartChar: glyph113
@@ -6806,6 +6813,50 @@ SplineSet
  743 699 829 742 869 803 c 1xb8
 EndSplineSet
 Validated: 33
+EndChar
+
+StartChar: po.u_sait
+Encoding: 261 -1 132
+Width: 1211
+VWidth: 1024
+Flags: HW
+VStem: 352.93 68.6094<267.741 409.076 479.292 607.669> 628 80<181.55 218.029>
+AnchorPoint: "sangau" 544 97 basechar 0
+AnchorPoint: "u_sait_lig" 767 348 baselig 0
+AnchorPoint: "pangnau" 953 328 basechar 0
+AnchorPoint: "saau_maam" 304 46 basechar 0
+AnchorPoint: "saau" 393 370 basechar 0
+LayerCount: 3
+Fore
+SplineSet
+565.28125 771.563476562 m 1
+ 553 761 509.03515625 723.852539062 509.03515625 723.852539062 c 1
+ 544.095703125 686.486328125 576.333007812 652.12890625 588.750976562 618 c 0
+ 602.76953125 579.471679688 606.189453125 501.795898438 421.5390625 479.291992188 c 1
+ 421.548828125 485.799804688 l 2
+ 421.548828125 570.759765625 421.548828125 638.383789062 348.703125 685.366210938 c 0
+ 256.768554688 744.665039062 115.598632812 649.014648438 101.7109375 545.079101562 c 0
+ 97.677734375 514.890625 97.0732421875 481.111328125 139.107421875 446.717773438 c 1
+ 83.7275390625 412.438476562 46.5087890625 346.737304688 64.48046875 282.139648438 c 0
+ 96.4638671875 167.18359375 269.423828125 148.3671875 361.696289062 210.663085938 c 0
+ 417 248 423.017578125 305 423.017578125 409.083007812 c 1
+ 460 394 529.342171299 338.533402774 562 294 c 0
+ 606 234 624 179 628 156 c 1
+ 708 184 l 1
+ 700 214 661.085325426 289.759628085 611 347 c 0
+ 590 371 550 411 518.51171875 433.174804688 c 1
+ 602.076171875 459.387695312 650 510 662 561 c 0
+ 680.311523438 638.822265625 596.346679688 738.482421875 565.28515625 771.563476562 c 1
+ 565.28125 771.563476562 l 1
+341.0234375 595.881835938 m 0
+ 353.280273438 573.4375 352.9296875 522 352.9296875 478.672851562 c 1
+ 333.671875 475.975585938 153.499023438 453.110351562 171.828125 544.686523438 c 0
+ 188.079101562 625.883789062 303.014648438 665.483398438 341.0234375 595.881835938 c 0
+353.189453125 407.209960938 m 1
+ 353.189453125 292 353.189453125 244.075195312 251 236.861328125 c 0
+ 156.74609375 230.20703125 87.9423828125 299.76953125 146.7265625 368.690429688 c 0
+ 164.376953125 389.387695312 192.8046875 422.720703125 353.189453125 407.209960938 c 1
+EndSplineSet
 EndChar
 EndChars
 EndSplineFont
