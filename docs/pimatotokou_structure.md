@@ -69,6 +69,6 @@ even though we're calling them composite glyphs, they're actually just basic ope
 
 Run the script from the repo root with:
 
-/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -script scripts/generate_composites.py
+/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -script scripts/generate_composites.py --overwrite
 
 /Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -script scripts/fix_direction.py

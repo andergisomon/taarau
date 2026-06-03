@@ -11,16 +11,19 @@ Produces 4,032 ligature glyphs:
 Anchor-based auto-positioning:
   - coda marks: aligned via "saau" anchor (fully automatic)
   - pangnau:    aligned via "pangnau" anchor (fully automatic)
+  - i_sait:     approximated using base "i_sait" / mark "i_sait_lig" anchors
   - u_sait:     approximated using base "u_sait" / mark "u_sait_lig" anchors
-  - i_sait:     placed at origin (no anchor defined; needs manual adjustment)
 
 Usage:
     fontforge -script scripts/generate_composites.py
+    fontforge -script scripts/generate_composites.py --overwrite
 """
 
 import fontforge
 import psMat
+import math
 import os
+import sys
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SFD_PATH = os.path.join(REPO_ROOT, "src", "Taarau.sfd")
@@ -58,9 +61,10 @@ LOOKUP_NAME = "composite-liga"
 SUBTABLE_NAME = "composite-liga-1"
 
 
-# Maps each mark glyph to the (base_anchor_class, mark_anchor_class) pair used
-# to position it. Where the classes differ (u_sait), we cross-match the best
-# available anchor. i_sait has no anchor, so it falls back to identity.
+# Maps each mark glyph to the anchor classes used to position it:
+# (base_anchor_class, mark_anchor_class[, mark_anchor_type]).
+# The mark anchor type defaults to "mark"; i_sait_lig is currently stored as
+# a base anchor in the source SFD, so it is called out explicitly.
 MARK_ANCHORS = {
     # coda marks: all use "saau" on both base and mark
     "kaak_saau":  ("saau",    "saau"),
@@ -79,9 +83,9 @@ MARK_ANCHORS = {
     "sigot":      ("saau_maam", "saau_maam"),
     # vowel lengthening
     "pangnau":    ("pangnau", "pangnau"),
-    # diphthong glides — cross-class approximation
+    # diphthong glides: cross-class approximation
+    "i_sait":     ("i_sait",  "i_sait_lig", "base"),
     "u_sait":     ("u_sait",  "u_sait_lig"),
-    # i_sait has no anchor; caller falls back to identity
 }
 
 
@@ -97,20 +101,45 @@ def mark_transform(font, base_name, mark_name):
     """
     Compute the translation that aligns mark_name's attachment anchor to the
     base_name glyph's attachment anchor. Falls back to identity if anchors
-    are missing (e.g. i_sait).
+    are missing.
     """
     pair = MARK_ANCHORS.get(mark_name)
     if pair is None:
         return psMat.identity()
 
-    base_class, mark_class = pair
+    base_class, mark_class = pair[:2]
+    mark_type = pair[2] if len(pair) > 2 else "mark"
     base_pos = get_anchor(font[base_name], base_class, "base")
-    mark_pos = get_anchor(font[mark_name], mark_class, "mark")
+    mark_pos = get_anchor(font[mark_name], mark_class, mark_type)
 
     if base_pos is None or mark_pos is None:
         return psMat.identity()
 
     return psMat.translate(base_pos[0] - mark_pos[0], base_pos[1] - mark_pos[1])
+
+
+def translation_offset(transform):
+    """Return the x/y offset from the translation-only transforms used here."""
+    return (transform[4], transform[5])
+
+
+def translated_bbox(font, glyph_name, transform):
+    xmin, ymin, xmax, ymax = font[glyph_name].boundingBox()
+    dx, dy = translation_offset(transform)
+    return (xmin + dx, ymin + dy, xmax + dx, ymax + dy)
+
+
+def compute_width(font, syllable, components):
+    """
+    Set the advance wide enough for all positioned components while preserving
+    the base syllable's right side bearing as spacing after the rightmost mark.
+    """
+    base_width = font[syllable].width
+    base_bbox = font[syllable].boundingBox()
+    base_rsb = max(0, base_width - base_bbox[2])
+    max_x = max(translated_bbox(font, name, transform)[2] for name, transform in components)
+
+    return int(math.ceil(max(base_width, max_x + base_rsb)))
 
 
 def glyph_name(syllable, coda, extra=None):
@@ -163,25 +192,54 @@ def move_lookup_last(sfd_path):
         f.writelines(lines)
 
 
-def create_composite(font, syllable, coda, extra=None):
+def parse_args(argv):
+    overwrite = False
+    for arg in argv[1:]:
+        if arg == "--skip-existing":
+            overwrite = False
+        elif arg == "--overwrite":
+            overwrite = True
+        else:
+            raise SystemExit(f"Unknown argument: {arg}")
+    return overwrite
+
+
+def reset_glyph(glyph):
+    """Remove previous generated outlines/references/lookups before rebuilding."""
+    try:
+        glyph.removePosSub(SUBTABLE_NAME)
+    except:
+        pass
+    glyph.clear()
+
+
+def create_composite(font, syllable, coda, extra=None, overwrite=True):
     name = glyph_name(syllable, coda, extra)
-    if name in font:
-        return False
-
-    g = font.createChar(-1, name)
-    g.width = font[syllable].width
-
-    g.addReference(syllable, psMat.identity())
-    g.addReference(coda, mark_transform(font, syllable, coda))
+    existed = name in font
+    if existed:
+        if not overwrite:
+            return "skipped"
+        g = font[name]
+        reset_glyph(g)
+    else:
+        g = font.createChar(-1, name)
+    components = [
+        (syllable, psMat.identity()),
+        (coda, mark_transform(font, syllable, coda)),
+    ]
     if extra:
         # For extra marks on a composite, use the syllable's base anchors as
         # the reference point (close enough for initial placement).
-        g.addReference(extra, mark_transform(font, syllable, extra))
+        components.append((extra, mark_transform(font, syllable, extra)))
 
-    components = [syllable, coda] + ([extra] if extra else [])
-    g.addPosSub(SUBTABLE_NAME, tuple(components))
+    g.width = compute_width(font, syllable, components)
+    for component_name, transform in components:
+        g.addReference(component_name, transform)
 
-    return True
+    ligature_components = [component_name for component_name, _ in components]
+    g.addPosSub(SUBTABLE_NAME, tuple(ligature_components))
+
+    return "updated" if existed else "created"
 
 
 def verify_inputs(font):
@@ -195,6 +253,7 @@ def verify_inputs(font):
 
 
 def main():
+    overwrite = parse_args(sys.argv)
     print(f"Opening {SFD_PATH}")
     font = fontforge.open(SFD_PATH)
 
@@ -205,6 +264,7 @@ def main():
     ensure_lookup(font)
 
     created = 0
+    updated = 0
     skipped = 0
 
     for syllable in OPEN_SYLLABLES:
@@ -214,20 +274,26 @@ def main():
             if coda not in font:
                 continue
             # plain CVC
-            if create_composite(font, syllable, coda):
+            result = create_composite(font, syllable, coda, overwrite=overwrite)
+            if result == "created":
                 created += 1
+            elif result == "updated":
+                updated += 1
             else:
                 skipped += 1
             # CVC + extra mark
             for extra in EXTRA_MARKS:
                 if extra not in font:
                     continue
-                if create_composite(font, syllable, coda, extra):
+                result = create_composite(font, syllable, coda, extra, overwrite=overwrite)
+                if result == "created":
                     created += 1
+                elif result == "updated":
+                    updated += 1
                 else:
                     skipped += 1
 
-    print(f"Done: {created} glyphs created, {skipped} already existed.")
+    print(f"Done: {created} glyphs created, {updated} regenerated, {skipped} already existed.")
     font.save(SFD_PATH)
     move_lookup_last(SFD_PATH)
     print(f"Saved to {SFD_PATH}")
