@@ -2,11 +2,12 @@
 """
 Generate precomposed composite glyphs for Taarau / Pimato Tokou.
 
-Produces 4,032 ligature glyphs:
-  - 1,008 plain CVC        (syllable + coda)
-  - 1,008 CVC + i_sait     (syllable + coda + diphthong /i/)
-  - 1,008 CVC + u_sait     (syllable + coda + diphthong /u/)
-  - 1,008 CVC + pangnau    (syllable + coda + vowel lengthening)
+Produces 4,408 ligature glyphs:
+  -   152 open syllable / independent vowel + i_sait/u_sait
+  - 1,064 plain CVC/VC     (base + coda)
+  - 1,064 CVC/VC + i_sait  (base + coda + diphthong /i/)
+  - 1,064 CVC/VC + u_sait  (base + coda + diphthong /u/)
+  - 1,064 CVC/VC + pangnau (base + coda + vowel lengthening)
 
 Anchor-based auto-positioning:
   - coda marks: aligned via "saau" anchor (fully automatic)
@@ -55,7 +56,12 @@ CODA_MARKS = [
     "naan_saau", "ngaang_saau", "laal_saau", "sigot",
 ]
 
+INDEPENDENT_VOWELS = ["a_bas", "i_bas", "u_bas", "o_bas"]
+
 EXTRA_MARKS = ["i_sait", "u_sait", "pangnau"]
+OPEN_SAIT_MARKS = ["i_sait", "u_sait"]
+OPEN_SAIT_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
+CODA_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
 
 LOOKUP_NAME = "composite-liga"
 SUBTABLE_NAME = "composite-liga-1"
@@ -142,10 +148,8 @@ def compute_width(font, syllable, components):
     return int(math.ceil(max(base_width, max_x + base_rsb)))
 
 
-def glyph_name(syllable, coda, extra=None):
-    if extra:
-        return f"{syllable}.{coda}.{extra}"
-    return f"{syllable}.{coda}"
+def glyph_name(components):
+    return ".".join(components)
 
 
 def ensure_lookup(font):
@@ -213,8 +217,8 @@ def reset_glyph(glyph):
     glyph.clear()
 
 
-def create_composite(font, syllable, coda, extra=None, overwrite=True):
-    name = glyph_name(syllable, coda, extra)
+def create_composite(font, components, overwrite=True):
+    name = glyph_name(components)
     existed = name in font
     if existed:
         if not overwrite:
@@ -223,28 +227,34 @@ def create_composite(font, syllable, coda, extra=None, overwrite=True):
         reset_glyph(g)
     else:
         g = font.createChar(-1, name)
-    components = [
-        (syllable, psMat.identity()),
-        (coda, mark_transform(font, syllable, coda)),
+    base_name = components[0]
+    placed_components = [
+        (base_name, psMat.identity()),
     ]
-    if extra:
-        # For extra marks on a composite, use the syllable's base anchors as
-        # the reference point (close enough for initial placement).
-        components.append((extra, mark_transform(font, syllable, extra)))
+    for mark_name in components[1:]:
+        placed_components.append((mark_name, mark_transform(font, base_name, mark_name)))
 
-    g.width = compute_width(font, syllable, components)
-    for component_name, transform in components:
+    g.width = compute_width(font, base_name, placed_components)
+    for component_name, transform in placed_components:
         g.addReference(component_name, transform)
 
-    ligature_components = [component_name for component_name, _ in components]
-    g.addPosSub(SUBTABLE_NAME, tuple(ligature_components))
+    g.addPosSub(SUBTABLE_NAME, tuple(components))
 
     return "updated" if existed else "created"
 
 
+def count_result(result, counts):
+    if result == "created":
+        counts["created"] += 1
+    elif result == "updated":
+        counts["updated"] += 1
+    else:
+        counts["skipped"] += 1
+
+
 def verify_inputs(font):
     missing = []
-    for name in OPEN_SYLLABLES + CODA_MARKS + EXTRA_MARKS:
+    for name in OPEN_SAIT_BASES + CODA_MARKS + EXTRA_MARKS:
         if name not in font:
             missing.append(name)
     if missing:
@@ -263,37 +273,37 @@ def main():
 
     ensure_lookup(font)
 
-    created = 0
-    updated = 0
-    skipped = 0
+    counts = {"created": 0, "updated": 0, "skipped": 0}
 
-    for syllable in OPEN_SYLLABLES:
-        if syllable not in font:
+    for base in OPEN_SAIT_BASES:
+        if base not in font:
+            continue
+        for extra in OPEN_SAIT_MARKS:
+            if extra not in font:
+                continue
+            result = create_composite(font, [base, extra], overwrite=overwrite)
+            count_result(result, counts)
+
+    for base in CODA_BASES:
+        if base not in font:
             continue
         for coda in CODA_MARKS:
             if coda not in font:
                 continue
-            # plain CVC
-            result = create_composite(font, syllable, coda, overwrite=overwrite)
-            if result == "created":
-                created += 1
-            elif result == "updated":
-                updated += 1
-            else:
-                skipped += 1
-            # CVC + extra mark
+            # plain CVC/VC
+            result = create_composite(font, [base, coda], overwrite=overwrite)
+            count_result(result, counts)
+            # CVC/VC + extra mark
             for extra in EXTRA_MARKS:
                 if extra not in font:
                     continue
-                result = create_composite(font, syllable, coda, extra, overwrite=overwrite)
-                if result == "created":
-                    created += 1
-                elif result == "updated":
-                    updated += 1
-                else:
-                    skipped += 1
+                result = create_composite(font, [base, coda, extra], overwrite=overwrite)
+                count_result(result, counts)
 
-    print(f"Done: {created} glyphs created, {updated} regenerated, {skipped} already existed.")
+    print(
+        f"Done: {counts['created']} glyphs created, "
+        f"{counts['updated']} regenerated, {counts['skipped']} already existed."
+    )
     font.save(SFD_PATH)
     move_lookup_last(SFD_PATH)
     print(f"Saved to {SFD_PATH}")

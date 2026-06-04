@@ -57,9 +57,9 @@ how do we most reliably ensure that all of these components don't collide and ha
 
 the best solution to this is to precompose glyphs by combining the open syllable glyphs with all of the marks:
 	
-(Total no. of open syllable glyphs = 72) x (14 coda marks) x (2 diphtong marks + 1 vowel lengthening mark) = 3024 composite glyphs requiring manual positioning
+(Total no. of open syllable/independent vowel glyphs = 76) x (2 diphtong marks) + 76 x (14 coda marks) x (2 diphtong marks + 1 vowel lengthening mark) = 3344 composite glyphs requiring manual positioning
 
-the 72*14 =1,008 combos of simple CVC syllables don't need dedicated composite glyphs. just dynamic mark to base is enough (for now, because libreoffice justification has problems with it, which would be solved via the dedicated composite glyph approach, inflating the count by +1008=4032 composite glyphs).
+the 76*14 =1,064 combos of simple CVC/VC syllables don't need dedicated composite glyphs. just dynamic mark to base is enough (for now, because libreoffice justification has problems with it, which would be solved via the dedicated composite glyph approach, inflating the count by +1064=4408 composite glyphs).
 
 doing this manually via the fontforge gui is tedious. the workflow can be sped up by scripting to automatically generate all of these composite glyphs and name them consistently. then whats left would be going through all of them for manual inspection and adjustment, which is still only a few clicks per glyph.
 
