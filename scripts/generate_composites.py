@@ -62,9 +62,11 @@ EXTRA_MARKS = ["i_sait", "u_sait", "pangnau"]
 OPEN_SAIT_MARKS = ["i_sait", "u_sait"]
 OPEN_SAIT_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
 CODA_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
+PANGNAU_RIGHT_PADDING = 80
 
 LOOKUP_NAME = "composite-liga"
 SUBTABLE_NAME = "composite-liga-1"
+KERN_SUBTABLE_NAME = "kerning-1"
 
 
 # Maps each mark glyph to the anchor classes used to position it:
@@ -143,6 +145,8 @@ def compute_width(font, syllable, components):
     base_width = font[syllable].width
     base_bbox = font[syllable].boundingBox()
     base_rsb = max(0, base_width - base_bbox[2])
+    if any(name == "pangnau" for name, _ in components):
+        base_rsb += PANGNAU_RIGHT_PADDING
     max_x = max(translated_bbox(font, name, transform)[2] for name, transform in components)
 
     return int(math.ceil(max(base_width, max_x + base_rsb)))
@@ -150,6 +154,113 @@ def compute_width(font, syllable, components):
 
 def glyph_name(components):
     return ".".join(components)
+
+
+def glyph_kern_pairs(font, glyph_name, excluded_right_glyphs=()):
+    """Return pair positioning records to copy from glyph_name to a composite."""
+    if glyph_name not in font:
+        return []
+
+    excluded_right_glyphs = set(excluded_right_glyphs)
+    pairs = []
+    for pos_sub in font[glyph_name].getPosSub(KERN_SUBTABLE_NAME):
+        if pos_sub[1] != "Pair":
+            continue
+        right_glyph = pos_sub[2]
+        if right_glyph in excluded_right_glyphs:
+            continue
+        if right_glyph in font:
+            pairs.append((right_glyph, pos_sub[3:]))
+    return pairs
+
+
+def kern_pair_map(font, generated_names):
+    source_names = CODA_MARKS + EXTRA_MARKS
+    return {
+        name: glyph_kern_pairs(font, name, generated_names)
+        for name in source_names
+        if name in font
+    }
+
+
+def kern_source(components):
+    return components[-1]
+
+
+def generated_component_lists():
+    components = []
+    for base in OPEN_SAIT_BASES:
+        for extra in OPEN_SAIT_MARKS:
+            components.append([base, extra])
+
+    for base in CODA_BASES:
+        for coda in CODA_MARKS:
+            components.append([base, coda])
+            for extra in EXTRA_MARKS:
+                components.append([base, coda, extra])
+
+    return components
+
+
+def right_target_map(font, component_lists):
+    targets = {}
+    for components in component_lists:
+        name = glyph_name(components)
+        if name in font:
+            targets.setdefault(components[0], []).append(name)
+    return targets
+
+
+def expanded_kern_pairs(font, kern_pairs, right_targets):
+    expanded = []
+    seen = set()
+
+    def add_pair(right_glyph, values):
+        if right_glyph in seen or right_glyph not in font:
+            return
+        expanded.append((right_glyph, values))
+        seen.add(right_glyph)
+
+    for right_glyph, values in kern_pairs:
+        add_pair(right_glyph, values)
+        for generated_right in right_targets.get(right_glyph, ()):
+            add_pair(generated_right, values)
+
+    return expanded
+
+
+def remove_pos_sub(glyph, subtable):
+    try:
+        glyph.removePosSub(subtable)
+    except:
+        pass
+
+
+def copy_pair_kerns(glyph, kern_pairs):
+    for right_glyph, values in kern_pairs:
+        glyph.addPosSub(KERN_SUBTABLE_NAME, right_glyph, *values)
+
+
+def sync_pair_kerns(glyph, kern_pairs):
+    remove_pos_sub(glyph, KERN_SUBTABLE_NAME)
+    copy_pair_kerns(glyph, kern_pairs)
+
+
+def sync_source_right_side_kerns(font, generated_names, right_targets):
+    for glyph in font.glyphs():
+        if glyph.glyphname in generated_names:
+            continue
+
+        existing_pairs = glyph.getPosSub(KERN_SUBTABLE_NAME)
+        has_generated_right = any(
+            pos_sub[1] == "Pair" and pos_sub[2] in generated_names
+            for pos_sub in existing_pairs
+        )
+        kern_pairs = glyph_kern_pairs(font, glyph.glyphname, generated_names)
+        if not kern_pairs and not has_generated_right:
+            continue
+
+        sync_pair_kerns(glyph, expanded_kern_pairs(font, kern_pairs, right_targets))
 
 
 def ensure_lookup(font):
@@ -210,14 +321,13 @@ def parse_args(argv):
 
 def reset_glyph(glyph):
     """Remove previous generated outlines/references/lookups before rebuilding."""
-    try:
-        glyph.removePosSub(SUBTABLE_NAME)
-    except:
-        pass
+    remove_pos_sub(glyph, SUBTABLE_NAME)
     glyph.clear()
 
 
-def create_composite(font, components, overwrite=True):
+def create_composite(font, components, kern_pairs_by_source=None, overwrite=True):
+    if kern_pairs_by_source is None:
+        kern_pairs_by_source = {}
     name = glyph_name(components)
     existed = name in font
     if existed:
@@ -227,6 +337,7 @@ def create_composite(font, components, overwrite=True):
         reset_glyph(g)
     else:
         g = font.createChar(-1, name)
+    remove_pos_sub(g, KERN_SUBTABLE_NAME)
     base_name = components[0]
     placed_components = [
         (base_name, psMat.identity()),
@@ -237,8 +348,12 @@ def create_composite(font, components, overwrite=True):
     g.width = compute_width(font, base_name, placed_components)
     for component_name, transform in placed_components:
         g.addReference(component_name, transform)
+    g.unlinkRef()
+    g.removeOverlap()
+    g.correctDirection()
 
     g.addPosSub(SUBTABLE_NAME, tuple(components))
+    copy_pair_kerns(g, kern_pairs_by_source.get(kern_source(components), ()))
 
     return "updated" if existed else "created"
 
@@ -272,6 +387,9 @@ def main():
         print("Proceeding, but composites referencing missing glyphs will be skipped.")
 
     ensure_lookup(font)
+    component_lists = generated_component_lists()
+    generated_names = {glyph_name(components) for components in component_lists}
+    kern_pairs_by_source = kern_pair_map(font, generated_names)
 
     counts = {"created": 0, "updated": 0, "skipped": 0}
 
@@ -281,7 +399,12 @@ def main():
         for extra in OPEN_SAIT_MARKS:
             if extra not in font:
                 continue
-            result = create_composite(font, [base, extra], overwrite=overwrite)
+            result = create_composite(
+                font,
+                [base, extra],
+                kern_pairs_by_source=kern_pairs_by_source,
+                overwrite=overwrite,
+            )
             count_result(result, counts)
 
     for base in CODA_BASES:
@@ -291,14 +414,30 @@ def main():
             if coda not in font:
                 continue
             # plain CVC/VC
-            result = create_composite(font, [base, coda], overwrite=overwrite)
+            result = create_composite(
+                font,
+                [base, coda],
+                kern_pairs_by_source=kern_pairs_by_source,
+                overwrite=overwrite,
+            )
             count_result(result, counts)
             # CVC/VC + extra mark
             for extra in EXTRA_MARKS:
                 if extra not in font:
                     continue
-                result = create_composite(font, [base, coda, extra], overwrite=overwrite)
+                result = create_composite(
+                    font,
+                    [base, coda, extra],
+                    kern_pairs_by_source=kern_pairs_by_source,
+                    overwrite=overwrite,
+                )
                 count_result(result, counts)
+
+    sync_source_right_side_kerns(
+        font,
+        generated_names,
+        right_target_map(font, component_lists),
+    )
 
     print(
         f"Done: {counts['created']} glyphs created, "
