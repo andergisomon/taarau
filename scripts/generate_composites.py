@@ -2,12 +2,12 @@
 """
 Generate precomposed composite glyphs for Taarau / Pimato Tokou.
 
-Produces 4,408 ligature glyphs:
-  -   152 open syllable / independent vowel + i_sait/u_sait
-  - 1,064 plain CVC/VC     (base + coda)
-  - 1,064 CVC/VC + i_sait  (base + coda + diphthong /i/)
-  - 1,064 CVC/VC + u_sait  (base + coda + diphthong /u/)
-  - 1,064 CVC/VC + pangnau (base + coda + vowel lengthening)
+Produces 4,640 ligature glyphs:
+  -   160 open syllable / independent vowel + i_sait/u_sait
+  - 1,120 plain CVC/VC     (base + coda)
+  - 1,120 CVC/VC + i_sait  (base + coda + diphthong /i/)
+  - 1,120 CVC/VC + u_sait  (base + coda + diphthong /u/)
+  - 1,120 CVC/VC + pangnau (base + coda + vowel lengthening)
 
 Anchor-based auto-positioning:
   - coda marks: aligned via "saau" anchor (fully automatic)
@@ -35,6 +35,7 @@ OPEN_SYLLABLES = [
     "ba", "bi", "bu", "bo",
     "da", "di", "du", "do",
     "ta", "ti", "tu", "to",
+    "ca", "ci", "cu", "co",
     "pa", "pi", "pu", "po",
     "ha", "hi", "hu", "ho",
     "ra", "ri", "ru", "ro",
