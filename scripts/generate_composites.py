@@ -63,6 +63,8 @@ OPEN_SAIT_MARKS = ["i_sait", "u_sait"]
 OPEN_SAIT_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
 CODA_BASES = OPEN_SYLLABLES + INDEPENDENT_VOWELS
 PANGNAU_RIGHT_PADDING = 80
+PANGNAU_A_VOWEL_KERN_MAX = 50
+A_VOWEL_OPEN_SYLLABLES = {name for name in OPEN_SYLLABLES if name.endswith("a")}
 
 LOOKUP_NAME = "composite-liga"
 SUBTABLE_NAME = "composite-liga-1"
@@ -156,6 +158,24 @@ def glyph_name(components):
     return ".".join(components)
 
 
+def right_base_glyph(glyph_name):
+    return glyph_name.split(".", 1)[0]
+
+
+def normalize_kern_values(left_glyph, right_glyph, values):
+    values = tuple(values)
+    if left_glyph != "pangnau":
+        return values
+    if right_base_glyph(right_glyph) not in A_VOWEL_OPEN_SYLLABLES:
+        return values
+    if values[2] <= PANGNAU_A_VOWEL_KERN_MAX:
+        return values
+
+    values = list(values)
+    values[2] = PANGNAU_A_VOWEL_KERN_MAX
+    return tuple(values)
+
+
 def glyph_kern_pairs(font, glyph_name, excluded_right_glyphs=()):
     """Return pair positioning records to copy from glyph_name to a composite."""
     if glyph_name not in font:
@@ -170,7 +190,9 @@ def glyph_kern_pairs(font, glyph_name, excluded_right_glyphs=()):
         if right_glyph in excluded_right_glyphs:
             continue
         if right_glyph in font:
-            pairs.append((right_glyph, pos_sub[3:]))
+            pairs.append(
+                (right_glyph, normalize_kern_values(glyph_name, right_glyph, pos_sub[3:]))
+            )
     return pairs
 
 
