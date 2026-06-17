@@ -3,6 +3,10 @@ The first ever typeface for Pimato Tokou, a new writing system for Kadazandusun 
 <div align="center">
     <img src="samples/tuhu.png" alt="Header image sample of the Taarau typeface" style="max-height: 150px;">
 </div>
+  
+<div align="center">
+    <img src="samples/kitoruntud.png" alt="Image sample showing the ubiquitous spine of the Pimato Sandad glyphs" style="max-height: 345px;">
+</div>
 
 ### Status
 Taarau is a work in progress. Currently Taarau only exists in a single weight. Glyph coverage is currently limited to Kadazandusun (Malaysian Ministry of Education*) phonology.
